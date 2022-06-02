@@ -1,7 +1,5 @@
 package entities;
 
-import exceptions.BusinessException;
-
 public class Account {
 	private Integer number;
 	private String holder;
@@ -35,6 +33,10 @@ public class Account {
 		return balance;
 	}
 
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
 	public Double getWithdrawLimit() {
 		return withdrawLimit;
 	}
@@ -48,17 +50,7 @@ public class Account {
 	}
 	
 	public void withdraw(Double amount) {
-		validateWithdraw(amount);
 		balance -= amount;
-	}
-	
-	public void validateWithdraw(Double amount) {
-		if(amount > getWithdrawLimit()) {
-			throw new BusinessException("The amount exceeds withdraw limit");
-		}
-		if(amount > getBalance()) {
-			throw new BusinessException("Not enough balance");
-		}
 	}
 	
 }
