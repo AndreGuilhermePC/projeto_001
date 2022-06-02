@@ -35,8 +35,7 @@ public class Program {
 		}catch (BusinessException e) {
 			System.out.println("New balance: " + e.getMessage());
 		}
-		
-		sc.close();
+
 	}
 
 }
